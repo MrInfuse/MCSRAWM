@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Web Server</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='a-button-30.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+</head>
+<body>
+<main>
+    <section class="glass">
+        <h1 id="title-name">Socket Control Demo</h1>
+        </div>
+        <div id="layout">
+            {% for pin in pins %}
+                {% if pins[pin].state == false %}
+                    <div class="item">
+                        <h2>{{ pins[pin].name }}</h2>
+                        <div class="button">
+                            <a href="/dashboard/{{pin}}/off" class="button-30" role="button">Turn off</a>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="item">
+                        <h2>{{ pins[pin].name }}</h2>
+                        <div class="button">
+                            <a href="/dashboard/{{pin}}/on" class="button-30" role="button">Turn on</a>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div style="text-align: center">
+            <a class="logout-box" href="{{ url_for('logout') }}">logout</a>
+    </section>
+</main>
+<div class="shape-01"></div>
+<div class="shape-02"></div>
+</body>
+</html>
