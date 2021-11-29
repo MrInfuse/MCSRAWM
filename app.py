@@ -1,3 +1,5 @@
+import os
+import wiringpi
 from time import sleep
 from flask import Flask, render_template, url_for, redirect, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
@@ -7,7 +9,6 @@ from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import InputRequired, Length, ValidationError
 from flask_bcrypt import Bcrypt
 from relay import relay
-import wiringpi
 
 
 app = Flask(__name__)
@@ -84,5 +85,17 @@ def register():
     return render_template('register.html', form=form)
 
 
+@app.route('/shutdown')
+def shutdown():
+    os.system('sudo shutdown now')
+    return '<h1>Shutting Down!</h1>'
+
+
+@app.route('/reboot')
+def reboot():
+    os.system('sudo reboot')
+    return '<h1>Restarting Down!</h1>'
+
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='192.168.0.125')
