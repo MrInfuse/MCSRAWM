@@ -48,18 +48,12 @@ main {
     bottom: 5%;
     left: 10%;
 }
-#layout {/*
-    margin: 5rem;
-    width: 90%;
+#layout {
+    margin: 2em;
     display: grid;
-    grid-template-columns: repeat(4, minmax(150px, 1fr));
-    grid-gap: 1rem;*/
-    margin: auto;
-    width: 800px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 150px);
-    grid-gap: 1rem;
+    grid-gap: 20px;
+    grid-auto-flow: dense;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
 .item {
     background: #FFFFFF;

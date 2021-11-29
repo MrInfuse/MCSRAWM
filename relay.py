@@ -10,7 +10,7 @@ I2C_ADDR_01 = 0x20
 I2C_ADDR_02 = 0x22
 
 wiringpi.wiringPiSetup()
-wiringpi.mcp23017Setup(PIN_OFFSET, I2C_ADDR_02)
+wiringpi.mcp23017Setup(PIN_OFFSET, I2C_ADDR_01)
 
 # dictionary
 pins = {
